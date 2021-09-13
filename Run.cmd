@@ -1,0 +1,1 @@
+sc.exe create "AADS Users WriteBack" binpath=C:\Azure.ADDS.UserWriteBack\Azure.ADDS.UserWriteBack.exe
