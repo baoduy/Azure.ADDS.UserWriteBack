@@ -81,9 +81,9 @@ namespace Azure.ADDS.UserWriteBack.Adds
                     continue;
                 }
 
-                _logger.LogInformation("ADDS create new user: {0}", u.UserId);
+                _logger.LogInformation("ADDS create new user: {UserId}", u.UserId);
                 
-                var samUserId = u.UserId.Replace("@Transwap.com", string.Empty,
+                var samUserId = u.UserId.Replace($"@{_options.DomainName}", string.Empty,
                     StringComparison.CurrentCultureIgnoreCase);
                 
                 user = new UserPrincipal(org ?? domain, samUserId, string.IsNullOrWhiteSpace(_options.DefaultPassword)?_passGenerator.Next():_options.DefaultPassword, false);
